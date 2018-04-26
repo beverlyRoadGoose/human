@@ -14,20 +14,13 @@
 #  limitations under the License.
 #
 
-cmake_minimum_required(VERSION 3.2)
-project(Human)
+include_directories(${PROJECT_SOURCE_DIR})
+include_directories(${PROJECT_SOURCE_DIR}/src)
+include_directories(${PROJECT_SOURCE_DIR}/lib)
+include_directories(${PROJECT_SOURCE_DIR}/lib/wxWidgets/include)
 
-# cmake & compile configs
-include(${PROJECT_SOURCE_DIR}/cmake/configs.cmake)
-
-# include directories
-include(${PROJECT_SOURCE_DIR}/cmake/includes.cmake)
-
-# app libraries
-include(${PROJECT_SOURCE_DIR}/cmake/libraries.cmake)
-
-# create app executable
-add_executable(Human src/main.h src/main.cpp)
-
-# Testing
-include(${PROJECT_SOURCE_DIR}/cmake/testing.cmake)
+if (APPLE)
+    include_directories(${PROJECT_SOURCE_DIR}/lib/wxWidgets/build-debug/lib/wx/include/osx_cocoa-unicode-3.0)
+elseif (UNIX AND NOT APPLE)
+    include_directories(${PROJECT_SOURCE_DIR}/lib/wxWidgets/build-debug/lib/wx/include/gtk3-unicode-3.0)
+endif ()
