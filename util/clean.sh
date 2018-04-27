@@ -5,6 +5,7 @@ rm -rf Testing
 rm -rf Makefile
 rm -rf CMakeFiles
 rm -rf CmakeCache.txt
+rm -rf cmake-build-debug
 rm -rf cmake_install.cmake
 rm -rf CTestTestfile.cmake
 
