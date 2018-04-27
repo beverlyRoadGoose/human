@@ -19,3 +19,4 @@ find_package(wxWidgets COMPONENTS adv core base REQUIRED)
 include(${wxWidgets_USE_FILE})
 
 add_library(human-ui src/app/ui/mainframe.cpp src/app/ui/mainframe.hpp)
+target_link_libraries(human-ui ${wxWidgets_LIBRARIES})
