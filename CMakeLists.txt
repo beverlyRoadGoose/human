@@ -28,6 +28,7 @@ include(${PROJECT_SOURCE_DIR}/cmake/libraries.cmake)
 
 # create app executable
 add_executable(Human src/main.hpp src/main.cpp)
+target_link_libraries(Human human-ui)
 
 # Testing
 include(${PROJECT_SOURCE_DIR}/cmake/testing.cmake)

@@ -1,4 +1,3 @@
-
 /*
  *  Copyright 2018 Oluwatobi Adeyinka
  *
@@ -16,18 +15,20 @@
  *
  */
 
-#include "main.hpp"
-#include "app/ui/mainframe.hpp"
+#include "mainframe.hpp"
 
-IMPLEMENT_APP(Human);
+MainFrame::MainFrame(const wxString & title) : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(500,500)) {
+    menuBar = new wxMenuBar;
 
-bool Human::OnInit() {
-    MainFrame * mainFrame = new MainFrame(wxT("Human"));
-    mainFrame->Show(true);
-
-    return true;
+    this->SetMenuBar(menuBar);
+    this->SetMinSize(wxSize(700, 700));
+    this->Centre();
 }
 
-int Human::OnExit() {
-    return wxAppBase::OnExit();
+void MainFrame::quit(wxCommandEvent & event) {
+    this->Close(true);
 }
+
+BEGIN_EVENT_TABLE(MainFrame, wxFrame)
+    EVT_BUTTON(wxID_EXIT,  MainFrame::quit)
+END_EVENT_TABLE()

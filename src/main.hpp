@@ -21,9 +21,11 @@
 #include <wx/wx.h>
 
 class Human : public wxApp {
+
 public:
     bool OnInit() override;
     int OnExit() override;
+
 };
 
 #endif //HUMAN_MAIN_HPP
