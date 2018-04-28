@@ -15,7 +15,7 @@
  *
  */
 
-#include "mainframe.hpp"
+#include "mainframe.hh"
 
 MainFrame::MainFrame(const wxString & title) : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(500,500)) {
     menuBar = new wxMenuBar;

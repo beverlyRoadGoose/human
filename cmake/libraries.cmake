@@ -14,12 +14,14 @@
 #  limitations under the License.
 #
 
-# link wxWidgets libraries
 find_package(wxWidgets COMPONENTS adv core base REQUIRED)
 include(${wxWidgets_USE_FILE})
 
-add_library(human-ui src/app/ui/mainframe.cpp src/app/ui/mainframe.hpp)
-target_link_libraries(human-ui ${wxWidgets_LIBRARIES})
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
 
-find_package( OpenCV REQUIRED )
-include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_library(human-entities src/app/entities/camera.cc src/app/entities/camera.hh)
+target_link_libraries(human-entities ${OpenCV_LIBS})
+
+add_library(human-ui src/app/ui/mainframe.cc src/app/ui/mainframe.hh)
+target_link_libraries(human-ui ${wxWidgets_LIBRARIES})
