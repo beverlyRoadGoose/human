@@ -23,11 +23,7 @@ MainFrame::MainFrame(const wxString & title)
 
     menuBar = new wxMenuBar;
     SetMenuBar(menuBar);
-
     videoFeedPanel = new VideoFeedPanel(this);
-
-    SetMinSize(wxSize(HumanConfig::FRAME_WIDTH, HumanConfig::FRAME_HEIGHT));
-    SetMaxSize(wxSize(HumanConfig::FRAME_WIDTH, HumanConfig::FRAME_HEIGHT));
     Centre();
 }
 
