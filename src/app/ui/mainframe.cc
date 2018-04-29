@@ -30,6 +30,8 @@ MainFrame::MainFrame(const wxString & title)
     int frameHeight = videoFeedPanel->getCamera().getCameraFrameHeight();
 
     SetSize(frameWidth, frameHeight);
+    SetMinSize(wxSize(frameWidth, frameHeight));
+    SetMaxSize(wxSize(frameWidth, frameHeight));
     Centre();
 }
 
