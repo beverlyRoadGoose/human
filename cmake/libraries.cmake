@@ -20,8 +20,11 @@ include(${wxWidgets_USE_FILE})
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
+add_library(human-util src/app/util/image_utils.cc src/app/util/image_utils.hh)
+target_link_libraries(human-util ${wxWidgets_LIBRARIES} ${OpenCV_LIBS})
+
 add_library(human-entities src/app/entities/camera.cc src/app/entities/camera.hh)
-target_link_libraries(human-entities ${OpenCV_LIBS})
+target_link_libraries(human-entities human-util ${OpenCV_LIBS})
 
 add_library(human-ui
         src/app/ui/mainframe.cc
