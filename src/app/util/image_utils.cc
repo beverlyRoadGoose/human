@@ -37,6 +37,6 @@ wxImage ImageUtils::matToWxImage(cv::Mat &image) {
 
 cv::Mat ImageUtils::wxImageToMat(wxImage &image) {
     cv::Mat mat(cv::Size(image.GetWidth(), image.GetHeight()), CV_8UC3, image.GetData());
-    cvtColor(mat,mat,CV_RGB2BGR);
+    cvtColor(mat, mat, CV_RGB2BGR);
     return mat;
 }

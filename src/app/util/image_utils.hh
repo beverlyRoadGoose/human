@@ -22,8 +22,8 @@
 #include <opencv2/core/mat.hpp>
 
 namespace ImageUtils {
-    static wxImage matToWxImage(cv::Mat & image);
-    static cv::Mat wxImageToMat(wxImage & image);
+    wxImage matToWxImage(cv::Mat & image);
+    cv::Mat wxImageToMat(wxImage & image);
 }
 
 #endif //HUMAN_IMAGE_UTILS_HH

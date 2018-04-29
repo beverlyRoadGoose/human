@@ -17,6 +17,7 @@
 
 #include <lib/wxWidgets/include/wx/image.h>
 #include <src/config/config.hh>
+#include <src/app/util/image_utils.hh>
 #include "camera.hh"
 
 Camera::Camera() {
@@ -31,5 +32,5 @@ wxImage Camera::getCurrentFrame() {
     mirroredFrame = cv::Mat(frame.rows, frame.cols, CV_8UC3);
     cv::flip(frame, mirroredFrame, 1);
 
-    return wxImage(mirroredFrame.cols, mirroredFrame.rows, mirroredFrame.data, TRUE);
+    return ImageUtils::matToWxImage(mirroredFrame);
 }
