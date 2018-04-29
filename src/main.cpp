@@ -17,7 +17,7 @@
  */
 
 #include "main.hpp"
-#include "app/ui/mainframe.hh"
+#include <src/app/ui/mainframe.hh>
 
 IMPLEMENT_APP(Human);
 

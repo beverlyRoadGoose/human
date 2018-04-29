@@ -15,7 +15,8 @@
  *
  */
 
-#include "src/config/config.hh"
+#include <thread>
+#include <src/config/config.hh>
 #include "mainframe.hh"
 
 MainFrame::MainFrame(const wxString & title)

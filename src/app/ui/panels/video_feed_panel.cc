@@ -15,11 +15,20 @@
  *
  */
 
+#include <thread>
 #include "video_feed_panel.hh"
 
 
 VideoFeedPanel::VideoFeedPanel(wxWindow * parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(800, 800)) {
     camera = Camera();
+
+    std::thread videoFeedUpdateThread([this]{
+        while (true) {
+            Refresh();
+            Update();
+        }
+    });
+    videoFeedUpdateThread.detach();
 }
 
 void VideoFeedPanel::render(wxPaintEvent &event) {
