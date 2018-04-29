@@ -17,6 +17,7 @@
 
 #include <iostream>
 #include "face_detector.hh"
+#include <src/config/config.hh>
 
 FaceDetector::FaceDetector() {
     loadFaceClassifier();
@@ -24,7 +25,7 @@ FaceDetector::FaceDetector() {
 
 void FaceDetector::loadFaceClassifier() {
     try {
-        bool loaded = faceClassifier.load(faceCascadeFileLocale);
+        bool loaded = faceClassifier.load(HumanConfig::faceCascadeFileLocale);
         if (!loaded) std::cout << "Error loading face cascade file.";
     } catch (std::exception & e) { std::cout << e.what(); }
 }

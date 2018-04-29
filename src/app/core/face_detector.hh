@@ -23,7 +23,6 @@
 
 class FaceDetector {
 private:
-    std::string faceCascadeFileLocale = "src/data/cascades/haarcascade_frontalcatface_extended.xml";
     cv::CascadeClassifier faceClassifier;
 
     void loadFaceClassifier();

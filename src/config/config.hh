@@ -18,9 +18,12 @@
 #ifndef HUMAN_CONFIG_HH
 #define HUMAN_CONFIG_HH
 
+#include <string>
+
 namespace HumanConfig {
     const static int FRAME_WIDTH = 800;
     const static int FRAME_HEIGHT = 800;
+    const static std::string faceCascadeFileLocale = "src/data/cascades/face_cascade.xml";
 }
 
 #endif //HUMAN_CONFIG_HH
