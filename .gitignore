@@ -18,6 +18,8 @@
 
 /lib
 
+/src/data
+
 /Makefile
 /CMakeFiles
 /CMakeCache.txt

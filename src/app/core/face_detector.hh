@@ -15,28 +15,22 @@
  *
  */
 
-#ifndef HUMAN_VIDEO_FEED_PANEL_HH
-#define HUMAN_VIDEO_FEED_PANEL_HH
+#ifndef HUMAN_FACE_DETECTOR_HH
+#define HUMAN_FACE_DETECTOR_HH
 
-#include <thread>
-#include <wx/wx.h>
-#include <src/app/entities/camera.hh>
-#include <lib/wxWidgets/include/wx/generic/panelg.h>
+#include <string>
+#include <opencv/cv.hpp>
 
-class VideoFeedPanel : public wxPanel {
+class FaceDetector {
 private:
-    Camera camera;
-    std::thread * videoFeedUpdateThread;
+    std::string faceCascadeFileLocale = "src/data/cascades/haarcascade_frontalcatface_extended.xml";
+    cv::CascadeClassifier faceClassifier;
 
-    void render(wxPaintEvent & event);
-
-    DECLARE_EVENT_TABLE();
+    void loadFaceClassifier();
 public:
-    explicit VideoFeedPanel(wxWindow * parent);
-    void startVideoRefreshFeedThread();
-    void stopVideoRefreshFeedThread();
-    const Camera &getCamera() const;
+    FaceDetector();
+    void detectAndMarkFaces(cv::Mat & frame);
+    ~FaceDetector();
 };
 
-
-#endif //HUMAN_VIDEO_FEED_PANEL_HH
+#endif //HUMAN_FACE_DETECTOR_HH

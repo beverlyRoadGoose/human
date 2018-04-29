@@ -20,10 +20,12 @@
 
 #include <wx/wx.h>
 #include <opencv/cv.hpp>
+#include <src/app/core/face_detector.hh>
 
 class Camera {
 private:
     cv::VideoCapture stream;
+    FaceDetector faceDetector;
 public:
     Camera();
     wxImage getCurrentFrame();

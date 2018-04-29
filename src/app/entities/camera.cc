@@ -22,6 +22,7 @@
 
 Camera::Camera() {
     stream = cv::VideoCapture(0);
+    faceDetector = FaceDetector();
 }
 
 wxImage Camera::getCurrentFrame() {
@@ -32,6 +33,7 @@ wxImage Camera::getCurrentFrame() {
 
     mirroredFrame = cv::Mat(frame.rows, frame.cols, CV_8UC3);
     cv::flip(frame, mirroredFrame, 1);
+    faceDetector.detectAndMarkFaces(mirroredFrame);
 
     return ImageUtils::matToWxImage(mirroredFrame);
 }
