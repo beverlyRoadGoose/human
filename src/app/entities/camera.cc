@@ -25,6 +25,11 @@ Camera::Camera() {
 
 wxImage Camera::getCurrentFrame() {
     cv::Mat frame;
+    cv::Mat mirroredFrame;
+
     stream.read(frame);
-    return wxImage(frame.cols, frame.rows, frame.data, TRUE);
+    mirroredFrame = cv::Mat(frame.rows, frame.cols, CV_8UC3);
+    cv::flip(frame, mirroredFrame, 1);
+
+    return wxImage(mirroredFrame.cols, mirroredFrame.rows, mirroredFrame.data, TRUE);
 }
