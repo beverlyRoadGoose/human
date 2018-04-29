@@ -33,6 +33,7 @@ public:
     explicit VideoFeedPanel(wxWindow * parent);
     void startVideoRefreshFeedThread();
     void stopVideoRefreshFeedThread();
+    const Camera &getCamera() const;
 };
 
 

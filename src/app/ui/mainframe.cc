@@ -24,7 +24,12 @@ MainFrame::MainFrame(const wxString & title)
 
     menuBar = new wxMenuBar;
     SetMenuBar(menuBar);
+
     videoFeedPanel = new VideoFeedPanel(this);
+    int frameWidth = videoFeedPanel->getCamera().getCameraFrameWidth();
+    int frameHeight = videoFeedPanel->getCamera().getCameraFrameHeight();
+
+    SetSize(frameWidth, frameHeight);
     Centre();
 }
 

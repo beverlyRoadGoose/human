@@ -27,6 +27,8 @@ private:
 public:
     Camera();
     wxImage getCurrentFrame();
+    int getCameraFrameWidth() const;
+    int getCameraFrameHeight() const ;
 };
 
 #endif //HUMAN_CAMERA_HPP

@@ -16,9 +16,13 @@
  */
 
 #include "video_feed_panel.hh"
+#include <src/config/config.hh>
 
-VideoFeedPanel::VideoFeedPanel(wxWindow * parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(800, 800)) {
+VideoFeedPanel::VideoFeedPanel(wxWindow * parent) :
+        wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize) {
+
     camera = Camera();
+    SetSize(camera.getCameraFrameWidth(), camera.getCameraFrameHeight());
     startVideoRefreshFeedThread();
 }
 
@@ -42,6 +46,10 @@ void VideoFeedPanel::startVideoRefreshFeedThread() {
 void VideoFeedPanel::stopVideoRefreshFeedThread() {
     videoFeedUpdateThread->join();
     delete videoFeedUpdateThread;
+}
+
+const Camera &VideoFeedPanel::getCamera() const {
+    return camera;
 }
 
 BEGIN_EVENT_TABLE(VideoFeedPanel, wxPanel)

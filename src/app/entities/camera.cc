@@ -29,8 +29,17 @@ wxImage Camera::getCurrentFrame() {
     cv::Mat mirroredFrame;
 
     stream.read(frame);
+
     mirroredFrame = cv::Mat(frame.rows, frame.cols, CV_8UC3);
     cv::flip(frame, mirroredFrame, 1);
 
     return ImageUtils::matToWxImage(mirroredFrame);
+}
+
+int Camera::getCameraFrameWidth() const {
+    return stream.get(CV_CAP_PROP_FRAME_WIDTH);
+}
+
+int Camera::getCameraFrameHeight() const {
+    return stream.get(CV_CAP_PROP_FRAME_HEIGHT);
 }
