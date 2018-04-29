@@ -24,11 +24,11 @@
 
 class VideoFeedPanel : public wxPanel {
 private:
-    wxImage frameImage;
     Camera camera;
+    void render(wxPaintEvent & event);
+    DECLARE_EVENT_TABLE();
 public:
     VideoFeedPanel(wxWindow * parent);
-    void updateFrameImage();
 };
 
 

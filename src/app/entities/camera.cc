@@ -26,6 +26,5 @@ Camera::Camera() {
 wxImage Camera::getCurrentFrame() {
     cv::Mat frame;
     stream.read(frame);
-    wxImage image(500, 500, frame.data, TRUE);
-    return image;
+    return wxImage(frame.cols, frame.rows, frame.data, TRUE);
 }

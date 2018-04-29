@@ -18,11 +18,18 @@
 #include "video_feed_panel.hh"
 
 
-VideoFeedPanel::VideoFeedPanel(wxWindow * parent) : wxPanel(parent) {
+VideoFeedPanel::VideoFeedPanel(wxWindow * parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(800, 800)) {
     camera = Camera();
-    frameImage = camera.getCurrentFrame();
 }
 
-void VideoFeedPanel::updateFrameImage() {
-    this->frameImage = camera.getCurrentFrame();
+void VideoFeedPanel::render(wxPaintEvent &event) {
+    wxUnusedVar(event);
+    wxPaintDC dc(this);
+    wxBitmap bmp(camera.getCurrentFrame());
+    dc.DrawBitmap(bmp, 0, 0, true);
 }
+
+BEGIN_EVENT_TABLE(VideoFeedPanel, wxPanel)
+    EVT_PAINT(VideoFeedPanel::render)
+END_EVENT_TABLE()
+

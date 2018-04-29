@@ -27,6 +27,7 @@ MainFrame::MainFrame(const wxString & title)
     videoFeedPanel = new VideoFeedPanel(this);
 
     SetMinSize(wxSize(HumanConfig::FRAME_WIDTH, HumanConfig::FRAME_HEIGHT));
+    SetMaxSize(wxSize(HumanConfig::FRAME_WIDTH, HumanConfig::FRAME_HEIGHT));
     Centre();
 }
 
