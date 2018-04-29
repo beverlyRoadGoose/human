@@ -12,6 +12,10 @@
 !/build/assets/
 !/build/assets/*
 
+/bin/*
+!/bin/assets/
+!/bin/assets/*
+
 /lib
 
 /Makefile
