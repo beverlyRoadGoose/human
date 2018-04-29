@@ -21,13 +21,16 @@
 
 IMPLEMENT_APP(Human);
 
+MainFrame * mainFrame;
+
 bool Human::OnInit() {
-    MainFrame * mainFrame = new MainFrame(wxT("Human"));
+    mainFrame = new MainFrame(wxT("Human"));
     mainFrame->Show(true);
 
     return true;
 }
 
 int Human::OnExit() {
+    mainFrame->getVideoFeedPanel()->stopVideoRefreshFeedThread();
     return wxAppBase::OnExit();
 }
