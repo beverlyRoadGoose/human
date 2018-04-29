@@ -16,8 +16,8 @@
  */
 
 #include <thread>
-#include <src/config/config.hh>
 #include "mainframe.hh"
+#include <src/config/config.hh>
 
 MainFrame::MainFrame(const wxString & title)
         : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(HumanConfig::FRAME_WIDTH, HumanConfig::FRAME_HEIGHT)) {

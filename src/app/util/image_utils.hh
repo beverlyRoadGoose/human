@@ -18,8 +18,8 @@
 #ifndef HUMAN_IMAGE_UTILS_HH
 #define HUMAN_IMAGE_UTILS_HH
 
-#include <lib/wxWidgets/include/wx/image.h>
 #include <opencv2/core/mat.hpp>
+#include <lib/wxWidgets/include/wx/image.h>
 
 namespace ImageUtils {
     wxImage matToWxImage(cv::Mat & image);

@@ -18,18 +18,16 @@
 #ifndef HUMAN_VIDEO_FEED_PANEL_HH
 #define HUMAN_VIDEO_FEED_PANEL_HH
 
-#include <wx/wx.h>
-#include <lib/wxWidgets/include/wx/generic/panelg.h>
-#include <src/app/entities/camera.hh>
 #include <thread>
+#include <wx/wx.h>
+#include <src/app/entities/camera.hh>
+#include <lib/wxWidgets/include/wx/generic/panelg.h>
 
 class VideoFeedPanel : public wxPanel {
 private:
     Camera camera;
     std::thread * videoFeedUpdateThread;
-
     void render(wxPaintEvent & event);
-
     DECLARE_EVENT_TABLE();
 public:
     explicit VideoFeedPanel(wxWindow * parent);

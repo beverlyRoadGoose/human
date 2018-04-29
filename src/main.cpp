@@ -17,11 +17,8 @@
  */
 
 #include "main.hpp"
-#include <src/app/ui/mainframe.hh>
 
 IMPLEMENT_APP(Human);
-
-MainFrame * mainFrame;
 
 bool Human::OnInit() {
     mainFrame = new MainFrame(wxT("Human"));

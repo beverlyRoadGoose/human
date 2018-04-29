@@ -15,10 +15,10 @@
  *
  */
 
-#include <lib/wxWidgets/include/wx/image.h>
+#include "camera.hh"
 #include <src/config/config.hh>
 #include <src/app/util/image_utils.hh>
-#include "camera.hh"
+#include <lib/wxWidgets/include/wx/image.h>
 
 Camera::Camera() {
     stream = cv::VideoCapture(0);

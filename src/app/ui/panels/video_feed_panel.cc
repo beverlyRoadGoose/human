@@ -17,7 +17,6 @@
 
 #include "video_feed_panel.hh"
 
-
 VideoFeedPanel::VideoFeedPanel(wxWindow * parent) : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxSize(800, 800)) {
     camera = Camera();
     startVideoRefreshFeedThread();
@@ -48,4 +47,3 @@ void VideoFeedPanel::stopVideoRefreshFeedThread() {
 BEGIN_EVENT_TABLE(VideoFeedPanel, wxPanel)
     EVT_PAINT(VideoFeedPanel::render)
 END_EVENT_TABLE()
-

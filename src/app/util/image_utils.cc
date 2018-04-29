@@ -15,8 +15,8 @@
  *
  */
 
-#include <opencv2/imgproc.hpp>
 #include "image_utils.hh"
+#include <opencv2/imgproc.hpp>
 
 wxImage ImageUtils::matToWxImage(cv::Mat &image) {
     cv::Mat imageCopy;

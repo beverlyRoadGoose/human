@@ -19,13 +19,14 @@
 #define HUMAN_MAIN_HPP
 
 #include <wx/wx.h>
+#include <src/app/ui/mainframe.hh>
 
 class Human : public wxApp {
-
+private:
+    MainFrame * mainFrame;
 public:
     bool OnInit() override;
     int OnExit() override;
-
 };
 
 #endif //HUMAN_MAIN_HPP

@@ -18,6 +18,7 @@
 #ifndef HUMAN_CAMERA_HPP
 #define HUMAN_CAMERA_HPP
 
+#include <wx/wx.h>
 #include <opencv/cv.hpp>
 
 class Camera {
