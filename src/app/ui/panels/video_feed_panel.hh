@@ -21,14 +21,20 @@
 #include <wx/wx.h>
 #include <lib/wxWidgets/include/wx/generic/panelg.h>
 #include <src/app/entities/camera.hh>
+#include <thread>
 
 class VideoFeedPanel : public wxPanel {
 private:
     Camera camera;
+    std::thread * videoFeedUpdateThread;
+
     void render(wxPaintEvent & event);
+
     DECLARE_EVENT_TABLE();
 public:
-    VideoFeedPanel(wxWindow * parent);
+    explicit VideoFeedPanel(wxWindow * parent);
+    void startVideoRefreshFeedThread();
+    void stopVideoRefreshFeedThread();
 };
 
 
