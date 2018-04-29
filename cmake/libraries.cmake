@@ -23,5 +23,8 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 add_library(human-entities src/app/entities/camera.cc src/app/entities/camera.hh)
 target_link_libraries(human-entities ${OpenCV_LIBS})
 
-add_library(human-ui src/app/ui/mainframe.cc src/app/ui/mainframe.hh)
+add_library(human-ui
+        src/app/ui/mainframe.cc src/app/ui/mainframe.hh
+        src/app/ui/panels/video_feed_panel.cc
+        src/app/ui/panels/video_feed_panel.hh)
 target_link_libraries(human-ui ${wxWidgets_LIBRARIES})

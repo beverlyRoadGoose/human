@@ -15,20 +15,30 @@
  *
  */
 
+#include "src/config/config.hh"
 #include "mainframe.hh"
 
-MainFrame::MainFrame(const wxString & title) : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(800,800)) {
-    menuBar = new wxMenuBar;
+MainFrame::MainFrame(const wxString & title)
+        : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(HumanConfig::FRAME_WIDTH, HumanConfig::FRAME_HEIGHT)) {
 
-    this->SetMenuBar(menuBar);
-    this->SetMinSize(wxSize(700, 700));
-    this->Centre();
+    menuBar = new wxMenuBar;
+    SetMenuBar(menuBar);
+
+    videoFeedPanel = new VideoFeedPanel(this);
+
+    SetMinSize(wxSize(HumanConfig::FRAME_WIDTH, HumanConfig::FRAME_HEIGHT));
+    Centre();
+}
+
+VideoFeedPanel *MainFrame::getVideoFeedPanel() const {
+    return videoFeedPanel;
 }
 
 void MainFrame::quit(wxCommandEvent & event) {
-    this->Close(true);
+    Close(true);
 }
 
 BEGIN_EVENT_TABLE(MainFrame, wxFrame)
     EVT_BUTTON(wxID_EXIT,  MainFrame::quit)
 END_EVENT_TABLE()
+

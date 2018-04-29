@@ -19,13 +19,16 @@
 #define HUMAN_MAINFRAME_HPP
 
 #include <wx/wx.h>
+#include <src/app/ui/panels/video_feed_panel.hh>
 
 class MainFrame : public wxFrame {
-
 private:
     wxMenuBar * menuBar;
+    VideoFeedPanel * videoFeedPanel;
+public:
+    VideoFeedPanel *getVideoFeedPanel() const;
 
-    DECLARE_EVENT_TABLE();
+DECLARE_EVENT_TABLE();
 public:
     explicit MainFrame(const wxString & title);
     void quit(wxCommandEvent & event);

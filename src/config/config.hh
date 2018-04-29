@@ -15,17 +15,12 @@
  *
  */
 
-#ifndef HUMAN_CAMERA_HPP
-#define HUMAN_CAMERA_HPP
+#ifndef HUMAN_CONFIG_HH
+#define HUMAN_CONFIG_HH
 
-#include <opencv/cv.hpp>
+namespace HumanConfig {
+    const static int FRAME_WIDTH = 800;
+    const static int FRAME_HEIGHT = 800;
+}
 
-class Camera {
-private:
-    cv::VideoCapture stream;
-public:
-    Camera();
-    wxImage getCurrentFrame();
-};
-
-#endif //HUMAN_CAMERA_HPP
+#endif //HUMAN_CONFIG_HH

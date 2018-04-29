@@ -15,18 +15,17 @@
  *
  */
 
-#include <opencv/cv.hpp>
+#include <lib/wxWidgets/include/wx/image.h>
+#include <src/config/config.hh>
 #include "camera.hh"
 
 Camera::Camera() {
     stream = cv::VideoCapture(0);
 }
 
-void Camera::startStreaming() {
-    while (true) {
-        cv::Mat frame;
-        stream.read(frame);
-        cv::imshow("", frame);
-        if (cv::waitKey(30) >= 0)break;
-    }
+wxImage Camera::getCurrentFrame() {
+    cv::Mat frame;
+    stream.read(frame);
+    wxImage image(500, 500, frame.data, TRUE);
+    return image;
 }

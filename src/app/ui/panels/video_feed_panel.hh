@@ -15,17 +15,21 @@
  *
  */
 
-#ifndef HUMAN_CAMERA_HPP
-#define HUMAN_CAMERA_HPP
+#ifndef HUMAN_VIDEO_FEED_PANEL_HH
+#define HUMAN_VIDEO_FEED_PANEL_HH
 
-#include <opencv/cv.hpp>
+#include <wx/wx.h>
+#include <lib/wxWidgets/include/wx/generic/panelg.h>
+#include <src/app/entities/camera.hh>
 
-class Camera {
+class VideoFeedPanel : public wxPanel {
 private:
-    cv::VideoCapture stream;
+    wxImage frameImage;
+    Camera camera;
 public:
-    Camera();
-    wxImage getCurrentFrame();
+    VideoFeedPanel(wxWindow * parent);
+    void updateFrameImage();
 };
 
-#endif //HUMAN_CAMERA_HPP
+
+#endif //HUMAN_VIDEO_FEED_PANEL_HH
