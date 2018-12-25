@@ -79,8 +79,8 @@ if [ -d "wxWidgets" ]; then
     echo wxWidgets lib dir already exists, skipping build.
     echo
 else
-    echo downloading wxWidgets 3.0.3.1
-    curl -L https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.3.1/wxWidgets-3.0.3.1.zip -o wxWidgets.zip
+    echo downloading wxWidgets 3.1.2
+    curl -L https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.2/wxWidgets-3.1.2.zip -o wxWidgets.zip
     mkdir wxWidgets
     unzip wxWidgets.zip -d wxWidgets
     rm -rf wxWidgets.zip
@@ -109,18 +109,18 @@ fi
 cd ../..
 
 #################################################
-# opencv-3.4.1
+# opencv-4.0
 #################################################
 
 echo ---------- setting up OpenCV ----------
 echo
 
-if [ -d "opencv-3.4.1" ]; then
+if [ -d "opencv-4.0.1" ]; then
     echo OpenCV lib dir already exists, skipping build.
     echo
 else
-    echo downloading OpenCV 3.4.1
-    https://github.com/opencv/opencv/archive/3.4.1.zip -o OpenCV.zip
+    echo downloading OpenCV 4.0.1
+    https://github.com/opencv/opencv/archive/4.0.1.zip -o OpenCV.zip
     mkdir OpenCV
     unzip Open.zip -d OpenCV
     rm -rf OpenCV.zip
